@@ -1,0 +1,23 @@
+.oc-dot {
+  border-radius: 3px;
+  transition: background-color 0.2s ease;
+
+  &.idle       { background-color: #1e1e2e; }
+  &.buffering  { background-color: #89b4fa; }
+  &.running    { background-color: #f9e2af; }
+  &.done       { background-color: #a6e3a1; }
+  &.error      { background-color: #f38ba8; }
+  &.cleared    { background-color: #313244; }
+}
+
+.oc-label {
+  font-size: 10px;
+  font-weight: bold;
+  
+  .oc-dot.idle &       { color: #cdd6f4; }  // light text on dark bg
+  .oc-dot.buffering &  { color: #1e1e2e; }  // dark text on light blue
+  .oc-dot.running &    { color: #1e1e2e; }  // dark text on light yellow
+  .oc-dot.done &       { color: #1e1e2e; }  // dark text on light green
+  .oc-dot.error &      { color: #1e1e2e; }  // dark text on light red
+  .oc-dot.cleared &    { color: #cdd6f4; }  // light text on dark bg
+}

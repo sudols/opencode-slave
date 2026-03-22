@@ -1,0 +1,34 @@
+(deflisten oc-state
+  :initial "idle"
+  `~/.local/bin/oc-status-watch.sh`)
+
+(defwidget oc-dot []
+  (box
+    :class "oc-dot ${oc-state}"
+    :width 18
+    :height 18
+    :halign "center"
+    :valign "center"
+    (label
+      :class "oc-label"
+      :text {oc-state == "idle" ? "·" :
+             oc-state == "buffering" ? "B" :
+             oc-state == "running" ? "R" :
+             oc-state == "done" ? "D" :
+             oc-state == "error" ? "!" :
+             oc-state == "cleared" ? "C" : "?"}
+      :halign "center"
+      :valign "center")))
+
+(defwindow oc-indicator
+  :monitor 0
+  :geometry (geometry
+    :x "12px"
+    :y "12px"
+    :width "18px"
+    :height "18px"
+    :anchor "bottom right")
+  :stacking "overlay"
+  :exclusive false
+  :focusable false
+  (oc-dot))
