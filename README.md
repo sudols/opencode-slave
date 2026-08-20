@@ -1,5 +1,3 @@
-# opencode-dsa-workflow
-
 Hyprland workflow for solving problems using OpenCode with screenshot-to-clipboard automation.
 
 ## Components
